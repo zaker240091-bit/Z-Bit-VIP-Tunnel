@@ -85,8 +85,7 @@ tnggl="$tgl2 $bln2, $thn2"
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 sed -i '/#vmess$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/config.json
-exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
-sed -i '/#vmessgrpc$/a\### '"$user $exp"'\
+sed -i '/#vmessgrpc$/a\###- '"$user $exp"'\
 },{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/config.json
 
 vmess_ws_tls_json=$(cat <<EOF
@@ -146,7 +145,7 @@ EOF
 vmesslink1="vmess://$(printf '%s' "$vmess_ws_tls_json" | base64 -w 0)"
 vmesslink2="vmess://$(printf '%s' "$vmess_ws_ntls_json" | base64 -w 0)"
 vmesslink3="vmess://$(printf '%s' "$vmess_grpc_json" | base64 -w 0)"
-systemctl restart xray > /dev/null 2>&1
+systemctl reload xray > /dev/null 2>&1
 service cron restart > /dev/null 2>&1
 
 

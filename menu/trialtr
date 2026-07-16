@@ -65,7 +65,7 @@ sed -i '/#trojanws$/a\#! '"$user $exp"'\
 sed -i '/#trojangrpc$/a\#! '"$user $exp"'\
 },{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
 # Link Trojan Akun
-systemctl restart xray
+systemctl reload xray
 trojanlink1="trojan://${uuid}@${domain}:443?security=tls&sni=${domain}&type=grpc&serviceName=trojan-grpc&mode=gun#${user}-gRPC"
 trojanlink="trojan://${uuid}@${domain}:443?security=tls&sni=${domain}&type=ws&host=${domain}&path=%2Ftrojan-ws#${user}-WS"
 

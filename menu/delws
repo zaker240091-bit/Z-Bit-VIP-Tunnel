@@ -48,7 +48,7 @@ NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/etc/xray/config.json")
     rm -rf /etc/vmess/$user
     rm -rf /etc/kyt/limit/vmess/ip/$user
     rm -rf /var/www/html/vme-$selected_user.txt
-    systemctl restart xray > /dev/null 2>&1
+    systemctl reload xray > /dev/null 2>&1
     clear
     echo -e "\033[0;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
     echo " Vmess Account Deleted Successfully"
