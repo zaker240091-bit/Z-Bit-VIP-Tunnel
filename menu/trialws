@@ -127,7 +127,7 @@ EOF
 vmesslink1="vmess://$(printf '%s' "$vmess_ws_tls_json" | base64 -w 0)"
 vmesslink2="vmess://$(printf '%s' "$vmess_ws_ntls_json" | base64 -w 0)"
 vmesslink3="vmess://$(printf '%s' "$vmess_grpc_json" | base64 -w 0)"
-systemctl reload xray > /dev/null 2>&1
+systemctl restart xray > /dev/null 2>&1
 service cron restart > /dev/null 2>&1
 
 

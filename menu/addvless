@@ -193,7 +193,7 @@ ${vlesslink3}
 
 END
 
-systemctl reload xray
+systemctl restart xray
 systemctl reload nginx
 clear
 echo -e ""

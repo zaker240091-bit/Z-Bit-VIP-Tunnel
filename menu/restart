@@ -9,7 +9,7 @@ sleep 2
 systemctl daemon-reload >/dev/null 2>&1 || true
 systemctl restart ws >/dev/null 2>&1 || true
 systemctl reload haproxy >/dev/null 2>&1 || true
-systemctl reload xray >/dev/null 2>&1 || true
+systemctl restart xray >/dev/null 2>&1 || true
 systemctl restart openvpn-server@server-tcp openvpn-server@server-udp >/dev/null 2>&1 || systemctl restart openvpn >/dev/null 2>&1 || true
 systemctl restart ssh >/dev/null 2>&1 || /etc/init.d/ssh restart || true
 systemctl restart dropbear >/dev/null 2>&1 || /etc/init.d/dropbear restart || true

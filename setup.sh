@@ -440,7 +440,8 @@ bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release
  
     # // Ambil Config Server
     fetch_file "media/config.json" "/etc/xray/config.json" >/dev/null 2>&1
-    fetch_file "media/runn.service" "/etc/systemd/system/runn.service" >/dev/null 2>&1
+    fetch_file "media/runn.service" "/etc/systemd/system/runn.service"
+    systemctl daemon-reload >/dev/null 2>&1
     #chmod +x /usr/local/bin/xray
     domain=$(cat /etc/xray/domain)
     IPVS=$(cat /etc/xray/ipvps)

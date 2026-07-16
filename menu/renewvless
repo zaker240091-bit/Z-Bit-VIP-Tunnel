@@ -66,7 +66,7 @@ fi
     uuid=$(grep -wE "^#& $user" "/etc/vless/.vless.db" | cut -d ' ' -f 4)
     sed -i "/#& $user/c\#& $user $exp4" /etc/xray/config.json
     sed -i "/#& $user/c\#& $user $exp4 $uuid $Quota $iplim" /etc/vless/.vless.db
-    systemctl reload xray > /dev/null 2>&1
+    systemctl restart xray > /dev/null 2>&1
     clear
     echo -e "\033[0;33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
     echo " VLESS Account Was Successfully Renewed"

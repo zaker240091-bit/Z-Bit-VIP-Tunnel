@@ -83,7 +83,7 @@ nonsslinkws="ss://${shadowsocks_base64e}@${domain}:80?path=/ss-ws&security=none&
 sslinkgrpc="ss://${shadowsocks_base64e}@${domain}:443?mode=gun&security=tls&encryption=none&type=grpc&serviceName=ss-grpc&sni=bug.com#${user}"
 nonsslinkgrpc="ss://${shadowsocks_base64e}@${domain}:80?mode=gun&security=none&encryption=none&type=grpc&serviceName=ss-grpc&sni=bug.com#${user}"
 
-systemctl reload xray
+systemctl restart xray
 #buatshadowsocks custom
 rm -rf /tmp/log
 rm -rf /tmp/log1
@@ -299,7 +299,7 @@ cat > /var/www/html/sodosokgrpc-$user.txt <<-END
   "stats": {}
 }
 END
-systemctl reload xray >/dev/null 2>&1
+systemctl restart xray >/dev/null 2>&1
 service cron restart >/dev/null 2>&1
 if [ ! -e /etc/shadowsocks ]; then
   mkdir -p /etc/shadowsocks

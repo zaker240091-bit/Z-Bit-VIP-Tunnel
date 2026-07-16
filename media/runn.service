@@ -7,6 +7,7 @@ Type=simple
 ExecStartPre=-/usr/bin/mkdir -p /var/run/xray
 ExecStart=/usr/bin/chown www-data:www-data /var/run/xray
 Restart=on-abort
+ExecReload=/bin/kill -HUP $MAINPID
 
 [Install]
 WantedBy=multi-user.target
