@@ -12,7 +12,7 @@ red() { echo -e "\\033[32;1m${*}\\033[0m"; }
 clear
 echo " "
 echo " "
-systemctl reload ssh
+systemctl restart ssh
 if [ -e "/var/log/auth.log" ]; then
         LOG="/var/log/auth.log";
 fi

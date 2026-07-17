@@ -83,4 +83,4 @@ for ((i = 1; i <= $totalaccounts; i++)); do
         userdel --force $username
     fi
 done
-systemctl reload ssh
+systemctl restart ssh

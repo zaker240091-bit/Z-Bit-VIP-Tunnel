@@ -787,12 +787,12 @@ print_success "ePro WebSocket Proxy"
 function ins_restart(){
 clear
 print_install "Restarting  All Packet"
-/etc/init.d/nginx reload || systemctl reload nginx || true
+/etc/init.d/nginx restart || systemctl restart nginx || true
 systemctl restart openvpn-server@server-tcp openvpn-server@server-udp >/dev/null 2>&1 || /etc/init.d/openvpn restart || true
-/etc/init.d/ssh reload || systemctl reload ssh || true
-/etc/init.d/dropbear reload || systemctl reload dropbear || true
-/etc/init.d/vnstat reload || systemctl reload vnstat || true
-systemctl reload haproxy || true
+/etc/init.d/ssh restart || systemctl restart ssh || true
+/etc/init.d/dropbear restart || systemctl restart dropbear || true
+/etc/init.d/vnstat restart || systemctl restart vnstat || true
+systemctl restart haproxy || true
 /etc/init.d/cron restart || systemctl restart cron || true
     systemctl daemon-reload
     systemctl start netfilter-persistent
